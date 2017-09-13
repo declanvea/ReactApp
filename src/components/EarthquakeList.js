@@ -6,15 +6,15 @@ export default class EarthquakeList extends Component {
   render() {
     return(
       <div className="quake-list">
-        {earthquakes.map(quakes =>
+        {earthquakes.features.map(quakes =>
           <div className="col-sm-6" key={quakes}>
             <div className="card" >
               <div className="card-block">
-                <h4 className="card-title">{quakes.features.properties.place}</h4>
-                <h6 className="card-subtitle mb-2 text-muted">Magnitude: {quakes.features.properties.mag}</h6>
-                <h6 className="card-subtitle mb-2 text-muted">Time: {moment(quakes.features.properties.time).format('llll')}</h6>
-                <p className="card-text">Coordinates: {quakes.features.geometry.coordinates}</p>
-                <a href={quakes.metadata.url} className="card-link">USGS Event Link</a>
+                <h4 className="card-title">{quakes.properties.place}</h4>
+                <h6 className="card-subtitle mb-2 text-muted">Magnitude: {quakes.properties.mag}</h6>
+                <h6 className="card-subtitle mb-2 text-muted">Time: {moment(quakes.properties.time).format('llll')}</h6>
+                <p className="card-text">Coordinates: {quakes.geometry.coordinates}</p>
+                <a href={earthquakes.metadata.url} className="card-link">USGS Event Link</a>
               </div>
             </div>
           </div>
